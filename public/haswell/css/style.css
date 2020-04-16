@@ -977,6 +977,14 @@ support for no js
 	font-weight: 300;
 	letter-spacing:7px;
 }
+.tp-caption.dark-light-40 {
+	color:#4b4e53;
+	font-family: 'Lato',Arial,Helvetica,sans-serif;
+	font-size: 40px;
+	font-weight: 300;
+	letter-spacing:7px;
+}
+
 
 /*****  SLIDE 3   *****/
 .tp-caption.dark-light-60 {

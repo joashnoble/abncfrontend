@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use DB;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +13,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('includes.topnavigation', function ($view) {
+            $headerData['h_news'] = DB::table('cms_newspublication')->orderBy('news_publish_date', 'desc')->take(4)->get();
+            $headerData['h_seminars'] = DB::table('cms_seminars')->orderBy('seminar_date', 'desc')->take(4)->get();
+            $headerData['h_company_profile'] = DB::table('company_info')->take(1)->get()[0];
+            $view->headerData = $headerData;
+        });
+
+        view()->composer('includes.footer', function ($view) {
+            $footerData['f_company_profile'] = DB::table('company_info')->take(1)->get()[0];
+            $view->footerData = $footerData;
+        });
     }
 
     /**
