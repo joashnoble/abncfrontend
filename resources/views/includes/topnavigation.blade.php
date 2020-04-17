@@ -6,7 +6,7 @@
           <!-- LOGO --> 
           <div class="logo-container-2">
   <div class="logo-2">
-    <a href="index.html" class="clearfix">
+    <a href="/" class="clearfix">
       <img src="/images/logo.png" class="logo-img" alt="Logo">
     </a>
   </div>
@@ -41,9 +41,9 @@
           <a href="#"><div class="main-menu-title">NEWS AND PUBLICATION</div></a>
           <ul class="sub">
             @foreach($headerData['h_news'] as $news )
-                <li><a href="#">{{ $news->news_title}}</a> </li>
+              <li><a href="/publication/{{ $news->news_id }}">{{ $news->news_title}}</a> </li>
             @endforeach
-            <li><a href="#">SEE ALL</a> </li>
+            <li><a href="/publications">SEE ALL</a> </li>
           </ul>
         </li>
         
@@ -72,7 +72,7 @@
                   <h5 class="title">CONTACT PAGES</h5>
                   <ul>
                     <li><a href="#">Instant Quotation Generator</a></li>
-                    <li><a href="contactus">Message Us</a></li>
+                    <li><a href="/contactus">Message Us</a></li>
                     <li><a href="#">Russian Site</a></li>
                     <li><a href="#">Russian CSR Contact</a></li>
                   </ul>

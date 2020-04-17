@@ -42,7 +42,7 @@
             <div class="rs-parallaxlevel-4 opacity-scroll2">
               <!-- LAYER NR. 1 -->
               <div class="tp-caption dark-light-100 font-white tp-left sfb tp-resizeme"
-                data-x="90"
+                data-x="30"
                 data-y="205" 
                 data-speed="500"
                 data-start="850"
@@ -55,7 +55,7 @@
               </div>
               <!-- LAYER NR. 2 -->
               <div class="tp-caption dark-black-100 font-white tp-left sfb tp-resizeme"
-                data-x="200"
+                data-x="100"
                 data-y="295" 
                 data-speed="500"
                 data-start="1050"
@@ -299,7 +299,7 @@
           <div class="container">
                 
             <div class="mb-50">
-              <h2 class="section-title pr-0">UPCOMING <span class="bold">SEMINARS</span><a href="blog-right-sidebar.html" class="section-more right">SEE ALL</a>
+              <h2 class="section-title pr-0">UPCOMING <span class="bold">SEMINARS</span><a href="/seminars" class="section-more right">SEE ALL</a>
                   </h2>
             </div>
             
@@ -314,7 +314,7 @@
                       <span class="blog2-date-numb">{{ date('d',  strtotime($seminar->seminar_date) )}}</span><span class="blog2-month">{{ date('F',  strtotime($seminar->seminar_date) )}}</span>
                     </div>
                     <div class="post-prev-title">
-                      <h3><a href="blog-single-sidebar-right.html">{{$seminar->seminar_title }}</a></h3>
+                    <h3><a href="/seminar/{{$seminar->seminar_id }}">{{$seminar->seminar_title }}</a></h3>
                       <div class="post-prev-info">
                       {{ $seminar->speaker_position }}<span class="slash-divider">/</span>{{ $seminar->speaker_fullname }}
                       </div>
@@ -363,7 +363,7 @@
                 
                 <!-- Item 1 -->
                 <li class="port-item mix development">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-1.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay"><img class="port-main-img" src="images/dashboard/abandc-staffs-images-1.jpg" alt="img" ></div>
                   </a>
                   <div class="port-overlay-cont">
@@ -376,7 +376,7 @@
   
                 <!-- Item 2 -->
                 <li class="port-item mix design">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-2.jpg" alt="img" >
                     </div>
@@ -391,7 +391,7 @@
                 
                 <!-- Item 3 -->
                 <li class="port-item mix photography">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-3.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-3.jpg" alt="img" >
                     </div>
@@ -406,7 +406,7 @@
                 
                 <!-- Item 4 -->
                 <li class="port-item mix development">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-4.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-4.jpg" alt="img" >
                     </div>
@@ -421,7 +421,7 @@
                 
                 <!-- Item 5 -->
                 <li class="port-item mix design">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-5.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-5.jpg" alt="img" >
                     </div>
@@ -436,7 +436,7 @@
                               
                 <!-- Item 6 -->
                 <li class="port-item mix photography">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-6.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-6.jpg" alt="img" >
                     </div>
@@ -451,7 +451,7 @@
                 
                 <!-- Item 7 -->
                 <li class="port-item mix development">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-7.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-7.jpg" alt="img" >
                     </div>
@@ -466,7 +466,7 @@
                 
                 <!-- Item 8 -->
                 <li class="port-item mix design">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-8.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-8.jpg" alt="img" >
                     </div>
@@ -481,7 +481,7 @@
                 
                 <!-- Item 9 -->
                 <li class="port-item mix photography">
-                  <a href="portfolio-single1.html">
+                  <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20">
                     <div class="port-img-overlay">
                       <img class="port-main-img" src="images/dashboard/abandc-staffs-images-2.jpg" alt="img" >
                     </div>
@@ -506,7 +506,7 @@
           <div class="container">
                 
             <div class="mb-50">
-              <h2 class="section-title pr-0">LATEST <span class="bold">NEWS AND PUBLICATION</span><a href="blog-right-sidebar.html" class="section-more right">OUR BLOG</a>
+              <h2 class="section-title pr-0">LATEST <span class="bold">NEWS AND PUBLICATION</span><a href="/publications" class="section-more right">OUR BLOG</a>
                   </h2>
             </div>
             
@@ -516,15 +516,15 @@
               <div class="col-sm-6 col-md-4 col-lg-4 wow fadeIn pb-70" >
                   
                 <div class="post-prev-img">
-                  <a href="blog-single-sidebar-right.html"><img src="haswell/images/blog/post-prev-1.jpg" alt="img"></a>
+                <a href="/publication/{{ $news->news_id}}"><img src="haswell/images/blog/post-prev-1.jpg" alt="img"></a>
                 </div>
                   
                 <div class="post-prev-title">
-                  <h3><a href="blog-single-sidebar-right.html">{{ $news->news_title }}</a></h3>
+                <h3><a href="/publication/{{ $news->news_id }}">{{ $news->news_title }}</a></h3>
                 </div>
                   
                 <div class="post-prev-info">
-                  {{ date('F d',  strtotime($news->news_publish_date) )}} <span class="slash-divider">/</span><a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel">JOHN DOE</a>
+                  {{ date('F d',  strtotime($news->news_publish_date) )}} <span class="slash-divider">/</span><a href="">JOHN DOE</a>
                 </div>
                   
                 <div class="post-prev-text">
@@ -533,7 +533,7 @@
                   
                 <div class="post-prev-more-cont clearfix">
                   <div class="post-prev-more left">
-                    <a href="blog-single-sidebar-right.html" class="blog-more">READ MORE</a>
+                  <a href="/publication/{{ $news->news_id }}" class="blog-more">READ MORE</a>
                   </div>
                 </div>
               

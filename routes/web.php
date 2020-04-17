@@ -20,3 +20,6 @@ Route::get('/', 'PagesController@index');
 Route::get('/contactus', 'PagesController@contactus');
 Route::get('/seminars', 'PagesController@seminars');
 Route::get('/seminar/{id}', 'PagesController@seminar');
+
+Route::get('/publications', 'PagesController@publications');
+Route::get('/publication/{id}', 'PagesController@publication');

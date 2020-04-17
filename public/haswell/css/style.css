@@ -767,7 +767,7 @@ support for no js
 .slider-1-cap-line {
 	height:3px;
 	width:100px;
-	background-color: #4b4e53;
+	background-color: #ffffff;
 }
 .slider-bg-white-cap {
 	display:none;
@@ -901,7 +901,7 @@ support for no js
 		visibility:visible;
 		height:240px;
 		width:1500px;
-		background-color: rgba(255,255,255,.9);
+		background-color: rgba(119, 119, 119, 0.9);
 	}
 	.tp-left{
 		left:60px !important;
