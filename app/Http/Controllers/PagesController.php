@@ -12,6 +12,7 @@ class PagesController extends Controller
     public function index(){
         $title = 'Welcome to laravel';
         $data['seminars'] =  DB::table('cms_seminars')->where('cms_seminars.is_deleted', 0)->orderBy('seminar_date', 'desc')->take(3)->get();
+        $data['industries'] =  DB::table('industries')->where('industries.is_deleted', 0)->get();
         $data['team_deps'] =  DB::table('b_refdepartments')->where('b_refdepartments.is_deleted', 0)->orderBy('department_desc', 'asc')->get();
         $data['team_photos'] = DB::table('cms_team')->leftJoin('b_refdepartments', 'b_refdepartments.department_id', '=', 'cms_team.department_id')
             ->leftJoin('cms_gallery', 'cms_gallery.gallery_id', '=', 'cms_team.gallery_id')

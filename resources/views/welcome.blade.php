@@ -224,67 +224,14 @@
                 <div class="mt-10 mb-10">
                   <h2 class="section-title"><span class="bold">INDUSTRIES</span><br>WE SERVE</h2>
                 </div>
-                <div class="row">   
+                <div class="row"> 
+                  @foreach($data['industries'] as $industry )   
                     <div class="col-md-4 col-sm-4">
                       <div class="fes7-box wow fadeIn" >
-                        <h3>Manufacturing</h3>
+                        <h3>{{ $industry->industry_desc}}</h3>
                       </div>
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box wow fadeIn" data-wow-delay="200ms">
-                        <h3>Agriculture</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box wow fadeIn" data-wow-delay="200ms">
-                        <h3>Hospitality</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box wow fadeIn" data-wow-delay="200ms">
-                        <h3>Automotive</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box wow fadeIn" data-wow-delay="200ms">
-                        <h3>Broadcast</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>SME</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>Pharmaceuticals</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>Finance</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>Medical</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>Real Estate</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>Advertising</h3>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="fes7-box  wow fadeIn" data-wow-delay="200ms">
-                        <h3>ICT / BPO / IT</h3>
-                      </div>
-                    </div>
+                  @endforeach
                 </div>
               </div>
             </div>
