@@ -352,153 +352,32 @@
             <div class="relative">
               <!-- PORTFOLIO FILTER -->                    
               <div class="port-filter text-center text-left-767">
-                <a href="#" class="filter active" data-filter="*">All</a>
-                <a href="#" class="filter" data-filter=".development">SENIORS</a>
-                <a href="#" class="filter" data-filter=".design">JUNIORS</a>
-                <a href="#" class="filter" data-filter=".photography">GOVERNMENT</a>
+                  <a href="#" class="filter active" data-filter="*">All</a>
+                @foreach($data['team_deps'] as $deps )
+                  <a href="#" class="filter" data-filter=".{{ preg_replace('/\s+/', '_', strtolower($deps->department_desc)) }}">{{$deps->department_desc}}</a>
+                @endforeach
               </div>                    
                       
               <!-- ITEMS GRID -->
               <ul class="port-grid port-grid-3 port-grid-gut clearfix" id="items-grid">
-                
-                <!-- Item 1 -->
-                <li class="port-item mix development">
-                  <a href="images/dashboard/abandc-staffs-images-1.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay"><img class="port-main-img" src="images/dashboard/abandc-staffs-images-1.jpg" alt="img" ></div>
+                @foreach($data['team_photos'] as $team_pho )
+                <li class="port-item mix {{preg_replace('/\s+/', '_', strtolower($team_pho->department_desc))  }}">
+                  <a href="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" class="lightbox mr-20">
+                    <div class="port-img-overlay"><img class="port-main-img" src="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" alt="img" ></div>
                   </a>
                   <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-1.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-  
-                <!-- Item 2 -->
-                <li class="port-item mix design">
-                  <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-2.jpg" alt="img" >
+                    <div class="port-title-cont">
+                      <h3><a href="#">{{ $team_pho->team_desc  }}</a></h3>
                     </div>
-                  </a>
-                  <div class="port-overlay-cont">
                       <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
+                        <a href="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
                       </div>
-  
                   </div>
                 </li>
-                
-                <!-- Item 3 -->
-                <li class="port-item mix photography">
-                  <a href="images/dashboard/abandc-staffs-images-3.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-3.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-3.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                
-                <!-- Item 4 -->
-                <li class="port-item mix development">
-                  <a href="images/dashboard/abandc-staffs-images-4.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-4.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-4.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                
-                <!-- Item 5 -->
-                <li class="port-item mix design">
-                  <a href="images/dashboard/abandc-staffs-images-5.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-5.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-5.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                              
-                <!-- Item 6 -->
-                <li class="port-item mix photography">
-                  <a href="images/dashboard/abandc-staffs-images-6.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-6.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-6.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                
-                <!-- Item 7 -->
-                <li class="port-item mix development">
-                  <a href="images/dashboard/abandc-staffs-images-7.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-7.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-7.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                
-                <!-- Item 8 -->
-                <li class="port-item mix design">
-                  <a href="images/dashboard/abandc-staffs-images-8.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-8.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-8.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
-                
-                <!-- Item 9 -->
-                <li class="port-item mix photography">
-                  <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20">
-                    <div class="port-img-overlay">
-                      <img class="port-main-img" src="images/dashboard/abandc-staffs-images-2.jpg" alt="img" >
-                    </div>
-                  </a>
-                  <div class="port-overlay-cont">
-                      <div class="port-btn-cont">
-                        <a href="images/dashboard/abandc-staffs-images-2.jpg" class="lightbox mr-20" ><div aria-hidden="true" class="icon_search"></div></a>
-                      </div>
-  
-                  </div>
-                </li>
+                @endforeach
               </ul>
-            
             </div>
-          
           </div>
-        
         </div>
 
         <!-- BLOG 1 -->
@@ -516,7 +395,7 @@
               <div class="col-sm-6 col-md-4 col-lg-4 wow fadeIn pb-70" >
                   
                 <div class="post-prev-img">
-                <a href="/publication/{{ $news->news_id}}"><img src="haswell/images/blog/post-prev-1.jpg" alt="img"></a>
+                <a href="/publication/{{ $news->news_id}}"><img src="{{ config('global.backend_site') }}{{ $news->gallery_file_path}}" alt="img"></a>
                 </div>
                   
                 <div class="post-prev-title">

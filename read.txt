@@ -1,0 +1,4 @@
+ACCESS IMAGES OR FILES FROM BACKEND DIRECTORY
+<img src="{{ config('global.backend_site') }}/images/1586877114.png">
+SET BACK END DIRECTORY IN FILE
+Config / Global.php

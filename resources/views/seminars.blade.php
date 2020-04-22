@@ -33,10 +33,10 @@
               <!-- CONTENT -->
               <div class="col-sm-8 blog-main-posts">
                 <div class="row">
-                  <?php foreach ($data['seminars'] as $seminar): ?>
+                  <?php $i = 0;  foreach ($data['seminars'] as $seminar): ?>
                   <div class="col-md-6 wow fadeIn pb-70">
                     <div class="post-prev-img">
-                      <a href="/seminar/{{ $seminar->seminar_id }}"><img src="haswell/images/blog/post-wide-1.jpg" alt="img"></a>
+                      <a href="/seminar/{{ $seminar->seminar_id }}"><img src="{{ config('global.backend_site') }}{{ $seminar->gallery_file_path}}" alt="img"></a>
                     </div>
                     <div class="post-prev-title">
                       <h3><a href="/seminar/{{ $seminar->seminar_id }}">{{ $seminar->seminar_title }}</a></h3>
@@ -53,6 +53,10 @@
                       </div>
                     </div>
                   </div>
+                  <?php $i++;   // ADDING OF ROW AFTER TWO ITEMS
+                    if ($i % 2 == 0 && $i != count($data['seminars'])) { 
+                        echo "</div><div class='row'>";
+                    } ?> 
                   <?php endforeach; ?>
                 </div>  
               </div>
@@ -79,7 +83,7 @@
                       <li class="clearfix">
                         <div class="widget-posts-descr">
                         <a href="/publication/{{$new->news_id}}" title="">{{$new->news_title}}</a>
-                          <div>{{ date('F d',  strtotime($new->news_publish_date) )}} <span class="slash-divider">/</span> John Doe</div> 
+                          <div>{{ date('F d',  strtotime($new->news_publish_date) )}}
                         </div>
                       </li>
                       <?php endforeach; ?>

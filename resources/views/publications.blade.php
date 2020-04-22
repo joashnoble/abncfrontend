@@ -33,10 +33,10 @@
               <!-- CONTENT -->
               <div class="col-sm-8 blog-main-posts">
                 <div class="row">
-                  <?php foreach ($data['news'] as $new): ?>
+                  <?php $i = 0;  foreach ($data['news'] as $new): ?>
                   <div class="col-md-6 wow fadeIn pb-70">
                     <div class="post-prev-img">
-                      <a href="/publication/{{ $new->news_id }}"><img src="haswell/images/blog/post-wide-1.jpg" alt="img"></a>
+                      <a href="/publication/{{ $new->news_id }}"><img src="{{ config('global.backend_site') }}{{ $new->gallery_file_path}}" alt="img"></a>
                     </div>
                     <div class="post-prev-title">
                       <h3><a href="/publication/{{ $new->news_id }}">{{ $new->news_title }}</a></h3>
@@ -53,6 +53,11 @@
                       </div>
                     </div>
                   </div>
+                  <?php $i++;   // ADDING OF ROW AFTER TWO ITEMS
+                    if ($i % 2 == 0 && $i != count($data['news'])) { 
+                        echo "</div><div class='row'>";
+                    } ?> 
+                  
                   <?php endforeach; ?>
                 </div>  
               </div>

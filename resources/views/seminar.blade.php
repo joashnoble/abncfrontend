@@ -16,7 +16,7 @@
         
         <div class="col-md-4">
           <div class="breadcrumbs">
-            <a href="index.html">Home</a><span class="slash-divider">/</span><a href="/seminars">SEMINARS</a>
+            <a href="/">Home</a><span class="slash-divider">/</span><a href="/seminars">SEMINARS</a>
           </div>
         </div>
         
@@ -32,10 +32,10 @@
         <!-- POST ITEM -->
         <div class="blog-post wow fadeIn pb-50">
           <div class="post-prev-img">
-            <a href="blog-single-sidebar-right.html"><img src="/haswell/images/blog/post-wide-1.jpg" alt="img"></a>
+            <img src="{{ config('global.backend_site') }}{{ $data['seminar']->gallery_file_path}}" alt="img">
           </div>
           <div class="post-prev-title">
-            <h3><a href="blog-single-sidebar-right.html">{{ $data['seminar']->seminar_title }}</a></h3>
+            <h3>{{ $data['seminar']->seminar_title }}</h3>
           </div>
           <div class="post-prev-info">
             {{ date('F d, Y',  strtotime($data['seminar']->seminar_date) )}}<span class="slash-divider">/</span>{{ $data['seminar']->speaker_fullname}}

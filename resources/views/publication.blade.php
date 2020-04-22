@@ -16,14 +16,13 @@
         
         <div class="col-md-4">
           <div class="breadcrumbs">
-            <a href="index.html">Home</a><span class="slash-divider">/</span><a href="/seminars">SEMINARS</a>
+            <a href="/">Home</a><span class="slash-divider">/</span><a href="/publications">NEWS AND PUBLICATIONS</a>
           </div>
         </div>
         
       </div>
     </div>
 </div>
-
 <div class="container p-140-cont">
     <div class="row">
     
@@ -33,11 +32,11 @@
         <!-- POST ITEM -->
         <div class="blog-post wow fadeIn pb-50">
           <div class="post-prev-img">
-            <a href="blog-single-sidebar-right.html"><img src="/haswell/images/blog/post-wide-1.jpg" alt="img"></a>
+          <img src="{{ config('global.backend_site') }}{{ $data['publication']->gallery_file_path}}" alt="img">
           </div>
             
           <div class="post-prev-title">
-            <h3><a href="blog-single-sidebar-right.html">{{ $data['publication']->news_title }}</a></h3>
+            <h3>{{ $data['publication']->news_title }}</h3>
           </div>
             
           <div class="post-prev-info">

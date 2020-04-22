@@ -14,8 +14,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('includes.topnavigation', function ($view) {
-            $headerData['h_news'] = DB::table('cms_newspublication')->orderBy('news_publish_date', 'desc')->take(4)->get();
-            $headerData['h_seminars'] = DB::table('cms_seminars')->orderBy('seminar_date', 'desc')->take(4)->get();
+            $headerData['h_news'] = DB::table('cms_newspublication')->where('cms_newspublication.is_deleted', 0)->orderBy('news_publish_date', 'desc')->take(4)->get();
+            $headerData['h_seminars'] = DB::table('cms_seminars')->where('cms_seminars.is_deleted', 0)->orderBy('seminar_date', 'desc')->take(4)->get();
             $headerData['h_company_profile'] = DB::table('company_info')->take(1)->get()[0];
             $view->headerData = $headerData;
         });
