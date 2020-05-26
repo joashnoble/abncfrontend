@@ -41,6 +41,7 @@ border-bottom: 0px;
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+    background-color: white;
 }
 .card-body{
     min-height: 70px;
@@ -92,6 +93,10 @@ border-bottom: 0px;
     border-left: #4b4e53 2px solid;
 }
 
+.owl-arrows-bg .owl-prev, .owl-arrows-bg .owl-next {
+    background: #744d24;
+    color:white;
+}
 </style>
 @endsection
 @section('content')
@@ -112,66 +117,44 @@ border-bottom: 0px;
       </div>
     </div>
   </div>
-<div class="page-section pt-30">
+<div class="page-section pt-30 " style="background-color:#f7f7f7;">
 <?php foreach ($data['categories'] as $category): ?>
-    <div class="row">
+    {{-- <div class="row">
         <div class="container">
             <div class="col-md-12 mb-10" style="text-transform: uppercase; color: #197a2e!important;">
                    <b> {{$category->category_desc}}</b>
             </div>
         </div>
-    </div>
+    </div> --}}
     <?php foreach ($data['service_types'] as $service_type): 
         if($category->category_id == $service_type->category_id){ ?>
         <!-- Slide Item -->
-            <div class="row">
-                <div class="container">
-                    <div class="col-md-12 mb-10">
-                        
-                        <h3 class="section-title-4">{{$service_type->service_type_desc}}</h3>
-                           
-                    </div>
-                </div>
-            </div>
+            <div class="container mb-20">
+                <div class="row">
+    
+                  <div class="col-md-12">
+                    <h4 class="blog-page-title mt-0 mb-20">{{$service_type->service_type_desc}}</h4>
+                  </div>
 
-            <div class="page-section owl-white-bg fullwidth-slider pb-10">
-                <div class="owl-white-bg fullwidth-slider  pb-30">        
-                
-           <?php  $count = 1; ?>
-            <?php foreach ($data['services'] as $service): 
-                if($service->service_type_id == $service_type->service_type_id){ ?>
 
-               <?php  if ($count%4 == 1){  ?>
-                    <div class="container relative">
-                        <div class="row">
-                            <div class="col-sm-12 mb-10">
-                <?php  }  ?> 
-                                <div class="col-sm-3">
-                                    <div class="card ">
-                                        <div class="card-body card-deck-wrapper">
-                                            {{$service->service_desc }}
-                                        </div>
-                                        <div class="card-footer text-center"> 10,000.00 
-                                        </div>
-                                    </div>
-                                </div>   
-                    <?php if ($count%4 == 0) { ?>  {{--  ADD ENDING TAGS AFTER 4 SERVICES --}}
+
+            <div class="owl-3items-nav owl-carousel owl-arrows-bg" >   
+                <?php foreach ($data['services'] as $service): 
+                    if($service->service_type_id == $service_type->service_type_id){ ?>
+                        <div class="item mb-0 text-center">
+                            <div class="card ">
+                                <div class="card-body card-deck-wrapper">
+                                    {{$service->service_desc }}
+                                </div>
+                                <div class="card-footer text-center"> 10,000.00 
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <?php } $count++; ?>
-                    
-                <?php } ?> {{-- END OF IF SERVICE TYPE--}}
-            <?php endforeach; ?> {{-- END OF SERVICES --}}
-            <?php if ($count%4 != 1){ ?>
-                        </div>
-                    </div>
-                </div>
-                <?php } ?>
-
-
+                        </div>   
+                    <?php } ?> {{-- END OF IF SERVICE TYPE--}}
+                <?php endforeach; ?> {{-- END OF SERVICES --}}
             </div>
         </div>
+    </div>
         <?php } ?> {{-- END OF IF SAME CATEGORY--}}
     <?php endforeach; ?> {{-- END OF SERVICES TYPES --}}
  <?php endforeach; ?> {{-- END OF CATEGORIES --}}
