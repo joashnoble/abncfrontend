@@ -18,6 +18,9 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/contactus', 'PagesController@contactus');
+Route::get('/login', 'PagesController@login');
+Route::get('/signup', 'PagesController@signup');
+Route::get('/services', 'PagesController@services');
 Route::get('/seminars', 'PagesController@seminars');
 Route::get('/seminar/{id}', 'PagesController@seminar');
 

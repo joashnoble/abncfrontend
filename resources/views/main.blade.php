@@ -14,7 +14,7 @@
         @yield('embeddedcss')
 
     </head>
-    <body>
+    <body style="overflow-x:hidden;">
         <div id="loader-overflow">
             <div id="loader3">Please enable JS</div>
         </div>	

@@ -58,8 +58,8 @@
           </ul>
         </li>					
         
-        <li ><a href="#"><div class="main-menu-title">CSR</div></a></li>        
-        <li ><a href="#"><div class="main-menu-title">GALLERY</div></a></li>        
+        {{-- <li ><a href="#"><div class="main-menu-title">CSR</div></a></li>        
+        <li ><a href="#"><div class="main-menu-title">GALLERY</div></a></li>         --}}
         
         <!-- MENU ITEM -->
         <li id="menu-contact-info-big" class="parent megamenu">

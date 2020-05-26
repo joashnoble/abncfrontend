@@ -27,6 +27,22 @@ class PagesController extends Controller
         return view('contactus');
     }
 
+    public function login(){
+        return view('login');
+    }
+
+    public function signup(){
+        return view('signup');
+    }
+
+    public function services(){
+        $data['categories'] =  DB::table('b_refcategory')->where('b_refcategory.is_deleted', 0)->get();
+        $data['service_types'] =  DB::table('services_type')->where('services_type.is_deleted', 0)->get();
+        $data['services'] =  DB::table('services')->where('services.is_deleted', 0)->get();
+        return view('services')->with('data', $data);
+    }
+
+
     public function seminars(){
         $data['seminars'] =  Seminar::leftJoin('cms_gallery', 'cms_gallery.gallery_id', '=', 'cms_seminars.gallery_id')->where('is_deleted', 0)->orderBy('seminar_id', 'desc')->paginate(10);
         $data['news'] = DB::table('cms_newspublication')->where('cms_newspublication.is_deleted', 0)->orderBy('news_publish_date', 'desc')->take(3)->get();
