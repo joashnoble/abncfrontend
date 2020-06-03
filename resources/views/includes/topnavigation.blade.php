@@ -1,4 +1,4 @@
-<header id="nav" class="header header-1">
+<header id="nav" class="header header-1 mobile-no-transparent">
     <div class="header-wrapper">
       <div class="container-m-30 clearfix">
         <div class="logo-row">
@@ -71,7 +71,7 @@
                 <div class="box col-md-6 menu-demo-info closed">
                   <h5 class="title">CONTACT PAGES</h5>
                   <ul>
-                    <li><a href="#">Instant Quotation Generator</a></li>
+                    <li><a href="/services">Instant Quotation Generator</a></li>
                     <li><a href="/contactus">Message Us</a></li>
                     <li><a href="#">Russian Site</a></li>
                     <li><a href="#">Russian CSR Contact</a></li>

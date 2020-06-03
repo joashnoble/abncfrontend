@@ -36,9 +36,15 @@ class PagesController extends Controller
     }
 
     public function services(){
-        $data['categories'] =  DB::table('b_refcategory')->where('b_refcategory.is_deleted', 0)->get();
+        $data['categories'] =  DB::table('b_refcategory')->where('b_refcategory.is_deleted', 0)->orderBy('sort_id', 'asc')->get();
         $data['service_types'] =  DB::table('services_type')->where('services_type.is_deleted', 0)->get();
         $data['services'] =  DB::table('services')->where('services.is_deleted', 0)->get();
+        $data['service_items'] =  DB::table('service_items')->select('*',
+        DB::raw('if(service_items.service_group_type_id = 1, "", services_group_type.service_group_desc) as service_group_desc') 
+        
+        )->leftJoin('services', 'services.service_id', '=', 'service_items.service_id')->where('services.is_deleted', 0)
+        ->leftjoin('services_group_type','services_group_type.service_group_type_id','=','service_items.service_group_type_id')
+        ->get();
         return view('services')->with('data', $data);
     }
 

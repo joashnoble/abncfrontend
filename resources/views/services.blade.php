@@ -116,353 +116,116 @@ border-bottom: 0px;
         
       </div>
     </div>
-  </div>
+</div>
+
 <div class="page-section pt-30 " style="background-color:#f7f7f7;">
-<?php foreach ($data['categories'] as $category): ?>
-    {{-- <div class="row">
-        <div class="container">
-            <div class="col-md-12 mb-10" style="text-transform: uppercase; color: #197a2e!important;">
-                   <b> {{$category->category_desc}}</b>
-            </div>
-        </div>
-    </div> --}}
-    <?php foreach ($data['service_types'] as $service_type): 
-        if($category->category_id == $service_type->category_id){ ?>
-        <!-- Slide Item -->
-            <div class="container mb-20">
+<form id="contact-form" action="php/contact-form.php" method="POST" autocomplete="off">
+    <?php foreach ($data['categories'] as $category): ?>
+            <div class="container">
                 <div class="row">
-    
-                  <div class="col-md-12">
-                    <h4 class="blog-page-title mt-0 mb-20">{{$service_type->service_type_desc}}</h4>
-                  </div>
-
-
-
-            <div class="owl-3items-nav owl-carousel owl-arrows-bg" >   
-                <?php foreach ($data['services'] as $service): 
-                    if($service->service_type_id == $service_type->service_type_id){ ?>
-                        <div class="item mb-0 text-center">
-                            <div class="card ">
-                                <div class="card-body card-deck-wrapper">
-                                    {{$service->service_desc }}
-                                </div>
-                                <div class="card-footer text-center"> 10,000.00 
-                                </div>
-                            </div>
-                        </div>   
-                    <?php } ?> {{-- END OF IF SERVICE TYPE--}}
-                <?php endforeach; ?> {{-- END OF SERVICES --}}
+                    <div class="col-md-12" >
+                        <h4 class="blog-page-title mt-0 mb-10" style="text-transform: uppercase; color: #197a2e!important;">{{$category->category_desc}}</h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-        <?php } ?> {{-- END OF IF SAME CATEGORY--}}
-    <?php endforeach; ?> {{-- END OF SERVICES TYPES --}}
- <?php endforeach; ?> {{-- END OF CATEGORIES --}}
-
-
-    
+        <?php foreach ($data['service_types'] as $service_type): 
+            if($category->category_id == $service_type->category_id){ ?>
+            <!-- Slide Item -->
+                <div class="container mb-20">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="blog-page-title mt-0 mb-20"><small><b>{{$service_type->service_type_desc}}</b></small></h4>
+                        </div>
+                        <div class="owl-3items-nav owl-carousel owl-arrows-bg" >   
+                            <?php foreach ($data['services'] as $service): 
+                                if($service->service_type_id == $service_type->service_type_id){ ?>
+                                    <div class="item mb-0 text-center">
+                                    <div class="card " id="{{$service->service_id}}" service="{{$service_type->service_type_desc}}">
+                                    <div class="card-body card-deck-wrapper">{{$service->service_desc }}</div>
+                                            <div class="card-footer text-center">
+                                                <select class="select2" >
+                                                    <?php  foreach ($data['service_items'] as $items): 
+                                                     if($items->service_id == $service->service_id){ ?>
+                                                        <option value="{{$items->service_group_type_id}}"  data-text="{{$items->service_group_desc}}" data-amount="{{$items->service_fee}}">{{$items->service_group_desc}} | {{number_format($items->service_fee,2)}}</option>
+                                                    <?php } ?>
+                                                    <?php endforeach; ?> 
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                <?php } ?> {{-- END OF IF SERVICE TYPE--}}
+                            <?php endforeach; ?> {{-- END OF SERVICES --}}
+                        </div>
+                    </div>
+                </div>
+            <?php } ?> {{-- END OF IF SAME CATEGORY--}}
+        <?php endforeach; ?> {{-- END OF SERVICES TYPES --}}
+    <?php endforeach; ?> {{-- END OF CATEGORIES --}}
+</form>	
 </div>
 
 
-                    
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-<form id="contact-form" action="php/contact-form.php" method="POST" autocomplete="off">
-<div class="page-section pt-80">
+<div class="page-section p-140-cont">
     <div class="container">
-        <div class="row">
-
-        <div class="col-md-12" style="align-content: center;">
-            <div class=" style="padding:40px;">
-              <!-- TITLE -->
-              <div class="mb-20">
-                <h2 class="section-title">ACCOUNTING<span class="bold"> SERVICES</span></h2>
-              </div>
-              <!-- CONTACT FORM -->
-              <div>
-
-                    <div class="row">
-                            <div class="col-sm-12 mb-10">
-                            <div class="col-sm-3">
-                                <div class="card ">
-                                    <div class="card-body card-deck-wrapper">
-                                        Business Tax - Monthly/Quarterly
-                                    </div>
-                                    <div class="card-footer">
-                                        <select class="select2" >
-                                            <option value="0">VAT</option>
-                                            <option value="0">NON-VAT</option>
-                                            <option value="1">ECO-ZONE</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="card ">
-                                    <div class="card-body card-deck-wrapper">
-                                      Withholding Tax - Monthly/Quarterly
-                                    </div>
-                                    <div class="card-footer" style="">
-                                        <select class="select2" >
-                                            <option value="0">
-                                                VAT | 10,000.00
-                                            <option value="0">NON-VAT | 20,000.00</option>
-                                            <option value="1">ECO-ZONE | 30,000.00 </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="card " >
-                                    <div class="card-body card-deck-wrapper" >
-                                     Income Tax - Quarterly
-                                    </div>
-                                    <div class="card-footer" >
-                                        <select class="select2" >
-                                            <option value="0">VAT</option>
-                                            <option value="0">NON-VAT</option>
-                                            <option value="1">ECO-ZONE</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-10">
-                            <div class="col-sm-12">
-                                <input type="text" placeholder="BOOKKEEPING" disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 mb-10">
-                            <div class="col-sm-3">
-                                <div class="card ">
-                                    <div class="card-body card-deck-wrapper">
-                                        Bookkeeping - Monthly
-                                    </div>
-                                    <div class="card-footer text-center"> 10,000.00 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-10">
-                            <div class="col-sm-12">
-                                <input type="text" placeholder="PAYROLL SERVICES" disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-sm-12 mb-10">
-                            <div class="col-sm-3">
-                                <div class="card ">
-                                    <div class="card-body card-deck-wrapper">
-                                        Payroll Services
-                                    </div>
-                                    <div class="card-footer">
-                                        <select class="select2" >
-                                            <option value="1">1-10 Employees | 10,000.00</option>
-                                            <option value="2">11-20 Employees | 15,000.00</option>
-                                            <option value="3">21-30 Employees | 20,000.00</option>
-                                            <option value="4">31-40 Employees | 35,000.00</option>
-                                            <option value="5">41 and above | 40,000.00</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-10">
-                            <div class="col-sm-12">
-                                <input type="text" placeholder="OTHER COMPLIANCE" disabled>
-                            </div>
-                        </div>
-                    </div>
-              </div>
-            </div>
+      <div class="row mb-40">
+      
+        <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table table-striped shopping-cart-table">
+            <thead>
+              <tr>
+              <th></th>
+              <th>SERVICE</th>
+              <th>DESCRIPTION</th>
+              <th>CLASSIFICATION</th>
+              <th>PRICE</th>
+              <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
           </div>
+        </div>
       
       </div>
     
-    </div>
-    
-</div>
+      
+      <!-- DIVIDER -->
+      <hr class="mt-0 mb-20">
+      
+      <!-- CALCULATE -->
+      <div class="row">
+      
+                          
+        <div class="col-sm-5 col-md-offset-7 ">
 
-<div class="page-section owl-white-bg fullwidth-slider">
-    <div class="owl-white-bg fullwidth-slider  pb-50">        
-    
-        <!-- Slide Item -->
-        <div class="container relative">
-            <div class="row">
-                <div class="col-sm-12 mb-10">
-                    <div class="col-sm-3">
-                        <div class="card ">
-                            <div class="card-body card-deck-wrapper">
-                                RMC 57 (Inventory List)
-                            </div>
-                            <div class="card-footer">
-                                <select class="select2" >
-                                    <option value="1">1-10 Employees | 10,000.00</option>
-                                    <option value="2">11-20 Employees | 15,000.00</option>
-                                    <option value="3">21-30 Employees | 20,000.00</option>
-                                    <option value="4">31-40 Employees | 35,000.00</option>
-                                    <option value="5">41 and above | 40,000.00</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card ">
-                            <div class="card-body card-deck-wrapper">
-                                Payroll Services
-                            </div>
-                            <div class="card-footer">
-                                <select class="select2" >
-                                    <option value="1">1-10 Employees | 10,000.00</option>
-                                    <option value="2">11-20 Employees | 15,000.00</option>
-                                    <option value="3">21-30 Employees | 20,000.00</option>
-                                    <option value="4">31-40 Employees | 35,000.00</option>
-                                    <option value="5">41 and above | 40,000.00</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card ">
-                            <div class="card-body card-deck-wrapper">
-                                Payroll Services
-                            </div>
-                            <div class="card-footer">
-                                <select class="select2" >
-                                    <option value="1">1-10 Employees | 10,000.00</option>
-                                    <option value="2">11-20 Employees | 15,000.00</option>
-                                    <option value="3">21-30 Employees | 20,000.00</option>
-                                    <option value="4">31-40 Employees | 35,000.00</option>
-                                    <option value="5">41 and above | 40,000.00</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card ">
-                            <div class="card-body card-deck-wrapper">
-                                Payroll Services
-                            </div>
-                            <div class="card-footer">
-                                <select class="select2" >
-                                    <option value="1">1-10 Employees | 10,000.00</option>
-                                    <option value="2">11-20 Employees | 15,000.00</option>
-                                    <option value="3">21-30 Employees | 20,000.00</option>
-                                    <option value="4">31-40 Employees | 35,000.00</option>
-                                    <option value="5">41 and above | 40,000.00</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+            <h5 class="mt-60 mb-10">
+              <span class="font-norm1 ">CART SUBTOTAL:</span> <strong><div id="subtotal"></div></strong>
+            </h5>
+            
+            <h5 class="mt-10 mb-10">
+              <span class="font-norm1 ">Admin Fees:</span> <strong><div id="adminfee"></div></strong>
+            </h5>
+            
+            <h3 class="mt-10 mb-30">
+              <span class="font-light ">ORDER TOTAL:</span> <strong><div id="grandtotal"></div></strong>
+            </h3>
+            
+            <div>
+              <a href="#" class="button medium gray">PROCEED TO CHECKOUT</a>
             </div>
+            
         </div>
-
-        <!-- Slide Item -->
-        <div class="container relative">
-            <div class="row">
-                <div class="col-sm-12 mb-10">
-                    <div class="col-sm-3">
-                        <div class="card ">
-                            <div class="card-body card-deck-wrapper">
-                                Payroll Services
-                            </div>
-                            <div class="card-footer">
-                                <select class="select2" >
-                                    <option value="1">1-10 Employees | 10,000.00</option>
-                                    <option value="2">11-20 Employees | 15,000.00</option>
-                                    <option value="3">21-30 Employees | 20,000.00</option>
-                                    <option value="4">31-40 Employees | 35,000.00</option>
-                                    <option value="5">41 and above | 40,000.00</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-
-
-  <div class="page-section owl-white-bg fullwidth-slider">
-    <div class="owl-white-bg fullwidth-slider  pb-50">        
-    
-      <!-- Slide Item -->
-      <div class="container relative">
-        <div class="row">
-            <div class="col-sm-12 mb-10">
-                <div class="col-sm-3">
-                    <div class="card ">
-                        <div class="card-body card-deck-wrapper">
-                            Bookkeeping - Monthly
-                        </div>
-                        <div class="card-footer text-center"> 10,000.00 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card ">
-                        <div class="card-body card-deck-wrapper">
-                            Bookkeeping - Monthly
-                        </div>
-                        <div class="card-footer text-center"> 10,000.00 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card ">
-                        <div class="card-body card-deck-wrapper">
-                            Bookkeeping - Monthly
-                        </div>
-                        <div class="card-footer text-center"> 10,000.00 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card ">
-                        <div class="card-body card-deck-wrapper">
-                            Bookkeeping - Monthly
-                        </div>
-                        <div class="card-footer text-center"> 10,000.00 
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+      
       </div>
-
-
-
+      
     </div>
   </div>
 
 
-</form>	
+
+
   
 @stop
 
@@ -470,16 +233,41 @@ border-bottom: 0px;
  
 @section('embeddedjs')
 <script src="/select2/select2.full.min.js"></script>
+<script src="/formatter/autoNumeric.js"></script>
+<script src="/formatter/accounting.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+    var oTableItems={
+        cartid : 'td:eq(0)',
+        service: 'td:eq(1)',
+        service_desc : 'td:eq(2)',
+        service_class : 'td:eq(3)',
+        service_amount : 'td:eq(4)'
+    };
 
-var initializeControls=function(){
+    var reComputeTotal=function(){
+        var st = 0; af = 0; gt = 0
+        var rows=$('table.shopping-cart-table > tbody tr');
+        $i = 1;
+
+        $.each(rows,function(){
+            st+=parseFloat(accounting.unformat($(oTableItems.service_amount,$(this)).text()));
+            $(oTableItems.cartid,$(this)).text($i); $i++;
+        });
+        af = (st*0.05);
+        gt = st + af;
+        $('#subtotal').text(accounting.formatNumber(st,2))
+        $('#adminfee').text(accounting.formatNumber(af,2))
+        $('#grandtotal').text(accounting.formatNumber(gt,2))
+    };
+
+    var initializeControls=function(){
         _select2=$(".select2").select2({
             templateResult: function(data) {
                 var r = data.text.split('|');
                     var $result = $(
                         '<div class="row">' +
-                            '<div class="col-xs-7">' + r[0] + '</div>' +
+                            '<div class="col-xs-7 text-left">' + r[0] + '</div>' +
                             '<div class="col-xs-5">' + r[1] + '</div>' +
                         '</div>'
                     );
@@ -489,7 +277,7 @@ var initializeControls=function(){
                 var r = data.text.split('|');
                     var $result = $(
                         '<div class="row">' +
-                            '<div class="col-xs-7">' + r[0] + '</div>' +
+                            '<div class="col-xs-7 text-left">' + r[0] + '</div>' +
                             '<div class="col-xs-5">' + r[1] + '</div>' +
                         '</div>'
                     );
@@ -499,16 +287,77 @@ var initializeControls=function(){
             minimumResultsForSearch: -1,
             allowClear: false
         }).prop("disabled", true);
+        reComputeTotal();
     }();
 
     var bindEventHandlers=(function(){
 
         $( ".card-deck-wrapper" ).click(function() {
-            $(this).closest('.card').toggleClass( "selected" )
-            $(this).next('.card-footer').find('select').prop('disabled', function(i, v) { return !v; });
+            var sCard = $(this).closest('.card');
+
+            if(!sCard.hasClass('selected')) { // DOESNT HAVE CLASS SO ADD THE CLASS
+                sCard.addClass('selected');
+                $(this).next('.card-footer').find('select').prop('disabled', false);
+
+                var  selectedObj = $(this).next('.card-footer').find('select');
+                var i =  selectedObj.val();
+                var valueObj = selectedObj.find('option[value="' + i + '"]');
+                
+                $('.shopping-cart-table > tbody').append(newRowItem({
+                   service : sCard.attr('service'),
+                   service_id : sCard.attr('id'),
+                   service_desc : sCard.children('.card-body').text(),
+                   service_class : valueObj.data('text'),
+                   service_amount : valueObj.data('amount'),
+                }));
+                reComputeTotal();
+            }else { // HAS AN ACTIVE CLASS SO REMOVE
+                sCard.removeClass('selected');
+                removeWithId = sCard.attr('id');
+                $(this).next('.card-footer').find('select').prop('disabled', true);
+                $('table.shopping-cart-table > tbody > tr[id="'+removeWithId+'"]').remove();
+                reComputeTotal();
+            }
+        }); // END OF CLICK FUNCTION
+
+        _select2.on('select2:select',function(e){
+            var i=$(this).select2('val');
+            var valueObj = $(this).find('option[value="' + i + '"]');
+            var sCard = $(this).select().closest('.card');
+            var updateWithId = sCard.attr('id');
+            // UPDATE CART DETAILS
+            $('table.shopping-cart-table > tbody > tr[id="'+updateWithId+'"] > td:nth-child(4)').text(valueObj.data('text'));
+            $('table.shopping-cart-table > tbody > tr[id="'+updateWithId+'"] td:nth-child(5)').text(accounting.formatNumber(valueObj.data('amount'),2));
+            reComputeTotal();
+
+        });
+
+        $('table.shopping-cart-table > tbody').on('click','button[name="remove_item"]',function(){
+            updateWithId = $(this).closest('tr').attr('id');
+            sCard = $('div#'+updateWithId);
+            sCard.removeClass('selected');
+            sCard.find('.card-footer').find('select').prop('disabled', true);
+            $(this).closest('tr').remove();
+            reComputeTotal();
         });
 
     })();
+
+
+    var newRowItem=function(d){
+       return '<tr id="'+d.service_id+'" class="cart_'+d.service_id+'">'+
+        '<td class="text-center"></td>'+
+        '<td >'+d.service+'</td>'+
+        '<td >'+d.service_desc+'</td>'+
+        '<td class="font-black">'+d.service_class+'</td>'+
+        '<td class="font-black">'+accounting.formatNumber(d.service_amount,2)+'</td>'+
+        '<td ><button type="button" name="remove_item"> <span aria-hidden="true" class="icon_close"></span></a></button></td>'+
+        '</tr>';
+
+
+    }
+
+
 });
 
 
