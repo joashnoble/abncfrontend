@@ -36,13 +36,32 @@ class PagesController extends Controller
     }
 
     public function services(){
-        $data['categories'] =  DB::table('b_refcategory')->where('b_refcategory.is_deleted', 0)->orderBy('sort_id', 'asc')->get();
-        $data['service_types'] =  DB::table('services_type')->where('services_type.is_deleted', 0)->get();
+        $data['categories'] =  DB::select('SELECT * FROM b_refcategory 
+        LEFT JOIN (SELECT category_id, IFNULL(SUM(s.services_count),0) services_count FROM services_type st
+            LEFT JOIN 
+            (SELECT s.service_type_id, count(*) as services_count
+            FROM services s 
+            WHERE s.is_active = TRUE AND s.is_deleted = FALSE 
+            GROUP BY s.service_type_id) 
+            as s ON s.service_type_id = st.service_type_id
+            WHERE st.is_deleted = FALSE  
+            GROUP BY st.category_id) as st ON st.category_id = b_refcategory.category_id
+
+        WHERE st.services_count > 0
+        ORDER BY sort_id ASC
+        ');
+        $data['service_types'] =  DB::select('SELECT * FROM services_type st
+            LEFT JOIN 
+            (SELECT s.service_type_id, count(*) as service_type_count FROM services s 
+            WHERE s.is_active = TRUE AND s.is_deleted = FALSE 
+            GROUP BY s.service_type_id) as s ON s.service_type_id = st.service_type_id
+
+        WHERE st.is_deleted = FALSE AND service_type_count > 0');
         $data['services'] =  DB::table('services')->where('services.is_deleted', 0)->get();
         $data['service_items'] =  DB::table('service_items')->select('*',
         DB::raw('if(service_items.service_group_type_id = 1, "", services_group_type.service_group_desc) as service_group_desc') 
-        
         )->leftJoin('services', 'services.service_id', '=', 'service_items.service_id')->where('services.is_deleted', 0)
+        ->where('services.is_active', 1)
         ->leftjoin('services_group_type','services_group_type.service_group_type_id','=','service_items.service_group_type_id')
         ->get();
         return view('services')->with('data', $data);
