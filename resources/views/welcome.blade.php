@@ -182,26 +182,29 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3 pb-20">
-                <h2 class="section-title wow fadeIn">OUR<br><span class="bold">SERVICES</span></h2>
+                <h2 class="section-title wow fadeIn">OUR<br><span class="bold" style="color: green;">SERVICES</span></h2>
               </div>
               <div class="col-md-9">
                 <div class="row">
                   <div class="row">
                     <div class="col-md-4 col-sm-4 pb-10">
                       <div class="fes5-box wow fadeIn" >
-                        <h3>AUDIT SERVICE</h3>
+                        <center><img src="{{ config('global.backend_site') }}uploads/gallery/audit.png" alt="img" style="width: 100px;height: 100px;"></center>
+                        <center><h3>AUDIT SERVICE</h3></center>
                         <p>Our audit work is at the core of our services as a firm. Our multi-disciplinary audit team collaborates to deliver high-quality audit.</p>
                       </div>
                     </div>
                     <div class="col-md-4 col-sm-4 pb-10">
                       <div class="fes5-box wow fadeIn" data-wow-delay="200ms">
-                        <h3>TAX SERVICE</h3>
+                        <center><img src="{{ config('global.backend_site') }}uploads/gallery/tax.png" alt="img" style="width: 100px;height: 100px;"></center>
+                        <center><h3>TAX SERVICE</h3></center>
                         <p>By combining industry insights with technical skills, we assist companies with business tax issues related to international and local tax planning as well as legislative and regulatory concerns.</p>
                       </div>
                     </div>
                     <div class="col-md-4 col-sm-4 pb-10">
                       <div class="fes5-box wow fadeIn" data-wow-delay="400ms">
-                        <h3>ADVISORY SERVICE</h3>
+                        <center><img src="{{ config('global.backend_site') }}uploads/gallery/advisory.png" alt="img" style="width: 100px;height: 100px;"></center>
+                        <center><h3>ADVISORY SERVICE</h3></center>
                         <p>Our primary focus in our practice are the fundamental business issues that all companies must address to flourish, such as managing risks, increasing revenues, and controlling costs.</p>
                       </div>
                     </div>
@@ -222,7 +225,7 @@
 
               <div class="col-md-8">
                 <div class="mt-10 mb-10">
-                  <h2 class="section-title"><span class="bold">INDUSTRIES</span><br>WE SERVE</h2>
+                  <h2 class="section-title"><span class="bold" style="color: green;">INDUSTRIES</span><br>WE SERVE</h2>
                 </div>
                 <div class="row"> 
                   @foreach($data['industries'] as $industry )   
@@ -246,7 +249,7 @@
           <div class="container">
                 
             <div class="mb-50">
-              <h2 class="section-title pr-0">UPCOMING <span class="bold">SEMINARS</span><a href="/seminars" class="section-more right">SEE ALL</a>
+              <h2 class="section-title pr-0">UPCOMING <span class="bold" style="color: green;">SEMINARS</span><a href="/seminars" class="section-more right">SEE ALL</a>
                   </h2>
             </div>
             
@@ -269,8 +272,8 @@
                   </div>
                     
                   <div class="col-md-6">
-                    <div class="blog2-post-prev-text">                     
-                    {{ $seminar->seminar_description }} 
+                    <div class="blog2-post-prev-text">  
+                    {!! $seminar->seminar_description !!}
                     </div>
                   </div>
                   
@@ -288,7 +291,7 @@
           <div class="container">
                 
             <div class="mt-50 mb-50 text-center">
-              <h2 class="section-title-2">MEET THE <span class="bold">TEAM</span></h2>
+              <h2 class="section-title-2">MEET THE <span class="bold" style="color: green;">TEAM</span></h2>
             </div>
           </div>
         </div>
@@ -310,7 +313,7 @@
                 @foreach($data['team_photos'] as $team_pho )
                 <li class="port-item mix {{preg_replace('/\s+/', '_', strtolower($team_pho->department_desc))  }}">
                   <a href="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" class="lightbox mr-20">
-                    <div class="port-img-overlay"><img class="port-main-img" src="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" alt="img" ></div>
+                    <div class="port-img-overlay"><img class="port-main-img" src="{{ config('global.backend_site') }}{{ $team_pho->gallery_file_path  }}" alt="img" style="width: 100%;height: 350px;"></div>
                   </a>
                   <div class="port-overlay-cont">
                     <div class="port-title-cont">
@@ -326,13 +329,13 @@
             </div>
           </div>
         </div>
-
+        <br>
         <!-- BLOG 1 -->
         <div class="page-section pt-50-b-30-cont">
           <div class="container">
                 
             <div class="mb-50">
-              <h2 class="section-title pr-0">LATEST <span class="bold">NEWS AND PUBLICATION</span><a href="/publications" class="section-more right">OUR BLOG</a>
+              <h2 class="section-title pr-0">LATEST <span class="bold" style="color: green;">NEWS AND PUBLICATION</span><a href="/publications" class="section-more right">OUR BLOG</a>
                   </h2>
             </div>
             
@@ -354,7 +357,7 @@
                 </div>
                   
                 <div class="post-prev-text">
-                  {{ $news->news_description }}
+                  {!! $news->news_description !!}
                 </div>
                   
                 <div class="post-prev-more-cont clearfix">

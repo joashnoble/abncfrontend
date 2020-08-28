@@ -44,7 +44,7 @@
           </div>
             
           <div class="post-prev-text">
-            {{ $data['publication']->news_description }}
+            {!! $data['publication']->news_description !!}
           </div>
             
 

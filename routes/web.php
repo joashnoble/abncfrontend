@@ -26,3 +26,19 @@ Route::get('/seminar/{id}', 'PagesController@seminar');
 
 Route::get('/publications', 'PagesController@publications');
 Route::get('/publication/{id}', 'PagesController@publication');
+
+Route::get('/logindetails', 'LoginController@details');
+Route::post('/validatelogin', 'LoginController@login');
+Route::get('/logout', 'LoginController@logout');
+
+Route::get('/profile', 'ProfileController@index');
+Route::post('/client/create', 'ClientController@create');
+
+Route::get('/checkout', 'ProfileController@quotation');
+Route::get('/success', 'PagesController@success');
+
+
+Route::get('/verify/{id}', 'ClientController@verify');
+
+
+

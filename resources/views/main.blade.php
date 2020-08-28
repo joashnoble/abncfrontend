@@ -8,7 +8,8 @@
 		<meta name="description" content="Accounting, Book Keepers, Consultants" > 
 		<meta name="author" content="Jdev Office Solution Inc">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
         @include('includes.favicon')
         @include('includes.externalcss')
         @yield('embeddedcss')

@@ -45,7 +45,7 @@
                     {{ date('F d, Y',  strtotime($new->news_publish_date) )}}
                     </div>
                     <div class="post-prev-text">
-                        {{ $new->news_description }}   
+                        {!! $new->news_description !!}   
                     </div>
                     <div class="post-prev-more-cont clearfix">
                       <div class="post-prev-more left">

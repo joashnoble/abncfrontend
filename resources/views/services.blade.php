@@ -118,7 +118,9 @@ border-bottom: 0px;
     </div>
 </div>
 
+<?php if(Session::has('client_id')){ ?>
 <div class="page-section pt-30 " style="background-color:#f7f7f7;">
+
 <form id="contact-form" action="php/contact-form.php" method="POST" autocomplete="off">
     <?php foreach ($data['categories'] as $category): ?>
             <div class="container">
@@ -146,7 +148,7 @@ border-bottom: 0px;
                                                 <select class="select2" >
                                                     <?php  foreach ($data['service_items'] as $items): 
                                                      if($items->service_id == $service->service_id){ ?>
-                                                        <option value="{{$items->service_group_type_id}}"  data-text="{{$items->service_group_desc}}" data-amount="{{$items->service_fee}}">{{$items->service_group_desc}} | {{number_format($items->service_fee,2)}}</option>
+                                                        <option value="{{$items->service_group_type_id}}"  data-text="{{$items->service_group_desc}}" data-amount="{{$items->service_fee}}">{{$items->service_group_desc}}</option>
                                                     <?php } ?>
                                                     <?php endforeach; ?> 
                                                 </select>
@@ -213,7 +215,7 @@ border-bottom: 0px;
             </h3>
             
             <div>
-              <a href="#" class="button medium gray">PROCEED TO CHECKOUT</a>
+              <a href="/checkout" class="button medium gray">PROCEED TO CHECKOUT</a>
             </div>
             
         </div>
@@ -222,7 +224,20 @@ border-bottom: 0px;
       
     </div>
   </div>
+ <?php }else{?>
+    <div class="page-section p-140-cont">
+    <div class="container">
+      <div class="row mb-40">
+      <div class="alert alert-info nobottommargin">
+        <span aria-hidden="true" class="alert-icon icon_blocked"></span>
+        Please login to create an instant quotation generator. Click here to <a href="/login"><b><u>Login</u></b></a>
+        </div>
+      </div>
 
+    </div>
+  </div>
+
+ <?php }?>
 
 
 
@@ -263,26 +278,6 @@ $(document).ready(function(){
 
     var initializeControls=function(){
         _select2=$(".select2").select2({
-            templateResult: function(data) {
-                var r = data.text.split('|');
-                    var $result = $(
-                        '<div class="row">' +
-                            '<div class="col-xs-7 text-left">' + r[0] + '</div>' +
-                            '<div class="col-xs-5">' + r[1] + '</div>' +
-                        '</div>'
-                    );
-                    return $result;
-            },
-            templateSelection: function(data) {
-                var r = data.text.split('|');
-                    var $result = $(
-                        '<div class="row">' +
-                            '<div class="col-xs-7 text-left">' + r[0] + '</div>' +
-                            '<div class="col-xs-5">' + r[1] + '</div>' +
-                        '</div>'
-                    );
-                    return $result;
-            },
             placeholder: "Please select.",
             minimumResultsForSearch: -1,
             allowClear: false

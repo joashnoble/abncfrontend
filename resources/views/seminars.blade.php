@@ -45,7 +45,7 @@
                     {{ date('F d, Y',  strtotime($seminar->seminar_date) )}}<span class="slash-divider">/</span>{{ $seminar->speaker_fullname}}
                     </div>
                     <div class="post-prev-text">
-                        {{ $seminar->seminar_description }}   
+                        {!! $seminar->seminar_description !!}   
                     </div>
                     <div class="post-prev-more-cont clearfix">
                       <div class="post-prev-more left">

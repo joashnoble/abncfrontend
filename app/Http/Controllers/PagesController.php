@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Seminar;
 use App\Models\Publication;
+use Session;
 use DB;
 
 class PagesController extends Controller
@@ -28,11 +29,27 @@ class PagesController extends Controller
     }
 
     public function login(){
-        return view('login');
+        if(Session::has('client_id')){
+            return view('profile');
+        }else{
+            return view('login');
+        }
     }
 
     public function signup(){
-        return view('signup');
+        if(Session::has('client_id')){
+            return view('profile');
+        }else{
+            return view('signup');
+        }
+    }
+
+    public function success(){
+        if(Session::has('client_id')){
+            return view('success');
+        }else{
+            return view('login');
+        }
     }
 
     public function services(){

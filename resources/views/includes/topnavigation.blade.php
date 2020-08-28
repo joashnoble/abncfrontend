@@ -107,7 +107,19 @@
             </li>
           </ul>
         </li>
-      
+
+        <?php if(Session::has('client_id')){ ?>
+            <li class="parent">
+              <a href="#"><div class="main-menu-title">{{ session('company_name') }}</div></a>
+              <ul class="sub">
+                <li><a href="/profile">Profile</a> </li>
+                <li><a href="/logout">Logout</a> </li>
+              </ul>
+            </li>
+        <?php }else{?>
+            <li ><a href="/login"><div class="main-menu-title">LOGIN</div></a></li>
+        <?php }?>
+            
                         </ul>
             
                       </nav>
@@ -123,16 +135,21 @@
       <!-- END main-menu-container -->
       
       <!-- SEARCH READ DOCUMENTATION -->
-      <ul class="cd-header-buttons">
+      <!-- <ul class="cd-header-buttons">
           <li><a class="cd-search-trigger" href="#cd-search"><span></span></a></li>
-      </ul> <!-- cd-header-buttons -->
-      <div id="cd-search" class="cd-search">
+      </ul> -->
+       <!-- cd-header-buttons -->
+      <!-- <div id="cd-search" class="cd-search">
           <form class="form-search" id="searchForm" action="page-search-results.html" method="get">
               <input type="text" value="" name="q" id="q" placeholder="Search...">
           </form>
-      </div>
+      </div> -->
       
     </div>
     <!-- END header-wrapper -->
     
+
+
+
+
   </header>
